@@ -1,0 +1,22 @@
+# Liferay auto-start
+# description: Auto-starts liferay
+# processname: liferay
+# pidfile: /var/run/liferay.pid
+ 
+case "$1" in
+start)
+        sh /opt/liferay/tomcat/bin/startup.sh
+        ;;
+stop)
+        sh /opt/liferay/tomcat/bin/shutdown.sh
+        ;;
+restart)
+        sh /opt/liferay/tomcat/bin/shutdown.sh
+        sh /opt/liferay/tomcat/bin/startup.sh
+        ;;
+*)
+        echo "Usage: /etc/init.d/liferay {start|stop|restart}"
+        exit 1
+        ;;
+esac
+exit 0
