@@ -12,7 +12,8 @@ MAINTAINER Zoltán Müllner <mullner.zoltan@gmail.com>
 # Install oracle-jdk6 and dependencies
 RUN add-apt-repository -y ppa:webupd8team/java && apt-get update && \
 	echo oracle-java6-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections && \
-	apt-get -y install oracle-java6-installer && \
+	DEBIAN_FRONTEND=noninteractive apt-get -y install \
+	oracle-java6-installer && \
 	apt-get clean && \
 	rm -rf /var/lib/apt/lists/* && \
 	rm -rf /var/cache/oracle-jdk6-installer && \
