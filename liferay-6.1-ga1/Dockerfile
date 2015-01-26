@@ -18,7 +18,8 @@ RUN curl -SL "http://downloads.sourceforge.net/project/lportal/Liferay%20Portal/
     | bsdtar -xvf- && \
 	chmod +x liferay-portal-6.1.0-ce-ga1/tomcat-7.0.23/bin/*.sh && \
     ln -sf tomcat-7.0.23 liferay-portal-6.1.0-ce-ga1/tomcat && \
-    ln -sf /home/liferay/liferay-portal-6.1.0-ce-ga1/ /opt/liferay
+    ln -sf /home/liferay/liferay-portal-6.1.0-ce-ga1/ /opt/liferay && \
+    ln -sf liferay-portal-6.1.0-ce-ga1 liferay-portal
 
 # Add liferay init-script
 COPY liferay /etc/init.d/
