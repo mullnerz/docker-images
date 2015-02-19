@@ -5,8 +5,9 @@
 # https://github.com/mullnerz/docker-images/tree/master/ubuntu
 #
 
-# Pull base image
 FROM ubuntu:14.04
+
+MAINTAINER Zoltán Müllner <mullner.zoltan@gmail.com>
 
 # Install
 RUN \
