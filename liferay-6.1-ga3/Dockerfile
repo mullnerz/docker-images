@@ -28,4 +28,4 @@ RUN chmod 755 /etc/init.d/liferay && update-rc.d liferay defaults
 EXPOSE 8080
 
 # Define default command
-CMD service liferay start && tail -f /opt/liferay/tomcat-7.0.40/logs/catalina.out
+CMD service liferay start && tail -f /opt/liferay/tomcat/logs/catalina.out
