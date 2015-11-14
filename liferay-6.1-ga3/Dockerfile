@@ -14,8 +14,8 @@ RUN useradd -m -N liferay
 WORKDIR /home/liferay
 
 # Install liferay-portal-6.1.2-ce-ga3 and dependencies
-RUN curl -SL "http://downloads.sourceforge.net/project/lportal/Liferay%20Portal/6.1.2%20GA3/liferay-portal-tomcat-6.1.2-ce-ga3-20130816114619181.zip" \
-    | bsdtar -xvf- && \
+RUN curl -sSL "http://downloads.sourceforge.net/project/lportal/Liferay%20Portal/6.1.2%20GA3/liferay-portal-tomcat-6.1.2-ce-ga3-20130816114619181.zip" \
+    | bsdtar -xf- && \
     chmod +x liferay-portal-6.1.2-ce-ga3/tomcat-7.0.40/bin/*.sh && \
     ln -sf tomcat-7.0.40 liferay-portal-6.1.2-ce-ga3/tomcat && \
     ln -sf /home/liferay/liferay-portal-6.1.2-ce-ga3/ /opt/liferay && \
@@ -23,7 +23,7 @@ RUN curl -SL "http://downloads.sourceforge.net/project/lportal/Liferay%20Portal/
 
 # Add liferay init-script
 COPY liferay /etc/init.d/
-RUN chmod 755 /etc/init.d/liferay && update-rc.d liferay defaults 
+RUN chmod 755 /etc/init.d/liferay && update-rc.d liferay defaults
 
 EXPOSE 8080
 
